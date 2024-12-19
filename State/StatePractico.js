@@ -1,4 +1,4 @@
-/// Patrón State
+/// Aplicación prática del State
 
 // Aplicación de reproducción de música que tiene diferentes estados
 // Como una reproducción tiene pausa y pausa el detenido
@@ -89,67 +89,3 @@ class EstadoDetenido extends EstadoReproductor {
 }
 
 const reproductorMusica = new ReproductorMusica();
-
-reproductorMusica.reproducir();
-reproductorMusica.reproducir();
-reproductorMusica.pausar();
-reproductorMusica.pausar();
-reproductorMusica.detener();
-reproductorMusica.detener();
-reproductorMusica.pausar();
-
-
-
-/// State en una escena de juego
-
-// Definamos la clase Contexto (Escena del juego)
-class EscenaJuego {
-    constructor() {
-        this.estado = new EstadoInicio();
-    }
-
-    cambiarEstado(estado) {
-        this.estado = estado;
-    }
-
-    ejecutar(estado) {
-        this.estado.ejecutar();
-    }
-}
-
-// Definamos la clase Estado (Esado Escena)
-class EstadoEscena {
-    ejecutar() {
-        throw new Error('Este método debe ser implementado por clases hijas');
-    }
-}
-
-class EstadoInicio extends EstadoEscena {
-    ejecutar() {
-        console.log('Iniciando la escena del juego');
-        // Cambiar al estado del juego
-        escenaJuego.cambiarEstado(new EstadoJugando());
-    }
-}
-
-class EstadoJugando extends EstadoEscena {
-    ejecutar() {
-        console.log('Jugando la escena del juego');
-        // Cambiar al estado finalizado
-        escenaJuego.cambiarEstado(new EstadoFinalizado());
-    }
-}
-
-class EstadoFinalizado extends EstadoEscena {
-    ejecutar() {
-        console.log('Escena del juego finalizada');
-        // Cambiar al estado inicial
-        escenaJuego.cambiarEstado(new EstadoInicio());
-    }
-}
-
-const escenaJuego = new EscenaJuego();
-escenaJuego.ejecutar();
-escenaJuego.ejecutar();
-escenaJuego.ejecutar();
-escenaJuego.ejecutar();

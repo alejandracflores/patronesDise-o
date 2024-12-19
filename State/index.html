@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>State</title>
+    <script src="StatePractico.js"></script>
+</head>
+<body>
+    <h1>Reproductor de Música</h1>
+    <button id="reproducir-btn">Reproducir</button>
+    <button id="pausar-btn">Pausar</button>
+    <button id="detener-btn">Detener</button>
+    <script>
+        const reproducirBtn = document.getElementById("reproducir-btn");
+        const pausarBtn = document.getElementById("pausar-btn");
+        const detenerBtn = document.getElementById("detener-btn");
+        
+        reproducirBtn.addEventListener('click', () => {
+            reproductorMusica.reproducir();
+        })
+
+        pausarBtn.addEventListener('click', () => {
+            reproductorMusica.pausar();
+        })
+        
+        detenerBtn.addEventListener('click', () => {
+            reproductorMusica.detener();
+        })
+    </script>
+</body>
+</html>
